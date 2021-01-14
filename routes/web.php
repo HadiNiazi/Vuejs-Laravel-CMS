@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    // auth()->logout();
     return view('welcome');
 });
-
+// Route::get('{path}', "Admin\DashboardController@home")->where( 'path', '^[A-Za-z/\0-9_.]+$' );
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -24,4 +26,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('/admin')->as('.admin')->middleware(['auth'])->group(function(){
     Route::get('/dashboard', 'Admin\DashboardController@home');
 });
-Route::get('{path}', "Admin\DashboardController@home")->where( 'path', '^[A-Za-z/\0-9_.]+$' );
+
+

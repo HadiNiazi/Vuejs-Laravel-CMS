@@ -25,7 +25,6 @@
 
   <!-- Core stylesheets -->
   <link rel="stylesheet" href="{{ asset('css/admin.css') }}" class="theme-settings-bootstrap-css">
-
   <script src="/js/layout-helpers.js"></script>
   <script src="/js/pace.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -70,7 +69,7 @@
 
           <!-- Layouts -->
           <li class="sidenav-item">
-            <a href="" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-ios-settings"></i>
+            <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-ios-settings"></i>
               <div>Management</div>
             </a>
 
@@ -85,9 +84,6 @@
             </ul>
           </li>
 
-
-
-
           <li class="sidenav-item">
             <router-link to="/admin/profile" class="sidenav-link"><i class="sidenav-icon fas fa-user"></i>
               <div>Profile</div>
@@ -95,9 +91,9 @@
           </li>
 
           <li class="sidenav-item">
-            <router-link to="/logout" class="sidenav-link"><i class="sidenav-icon fa fa-power-off"></i>
+            <a href="" class="sidenav-link"><i class="sidenav-icon fa fa-power-off"></i>
               <div>Logout</div>
-            </router-link>
+            </a>
           </li>
         </ul>
       </div>
@@ -295,6 +291,7 @@
             <!-- Counters -->
             <div class="row">
                 <router-view></router-view>
+                <vue-progress-bar></vue-progress-bar>
               {{-- <div class="col-sm-6 col-xl-3">
 
                 <div class="card mb-4">

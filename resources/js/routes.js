@@ -1,7 +1,8 @@
 
 import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
-import Users from './components/Users';
+import Index from './components/Users/Index';
+
   export default {
     mode:'history',
     routes: [
@@ -15,7 +16,7 @@ import Users from './components/Users';
         },
         {
         path: '/admin/users',
-        component: Users
+        component: Index
         },
       ]
   };

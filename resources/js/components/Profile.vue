@@ -1,14 +1,10 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Profile Component</div>
+        <div class="row">
+            <div class="col-md-12">
 
-                    <div class="card-body">
-                        I'm an profile component.
-                    </div>
-                </div>
+
+
             </div>
         </div>
     </div>
