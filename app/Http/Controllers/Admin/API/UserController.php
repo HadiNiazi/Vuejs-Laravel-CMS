@@ -11,6 +11,10 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('auth:api');
+    }
     public function index()
     {
         $users = User::latest()->get();
@@ -48,5 +52,9 @@ class UserController extends Controller
         $user = User::findOrFail($id)->update($request->all());
 
         return response()->json($user);
+    }
+    public function profile()
+    {
+        return auth()->user();
     }
 }

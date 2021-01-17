@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // auth()->logout();
+    auth()->logout();
     return view('welcome');
 });
-// Route::get('{path}', "Admin\DashboardController@home")->where( 'path', '^[A-Za-z/\0-9_.]+$' );
+Route::get('{path}', "Admin\DashboardController@home")->where( 'path', '^[A-Za-z/\0-9_.]+$' );
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 

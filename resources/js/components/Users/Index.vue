@@ -34,7 +34,7 @@
                                     <td> {{ user.type | capitalize }} </td>
                                     <td> {{ user.created_at | created_at }} </td>
                                     <td>
-                                        <a @click="edit(user)" data-toggle="modal" data-target="#editUser"> <i class="fa fa-edit"></i></a>
+                                        <a @click="edit(user)" href="javascript:void()" data-toggle="modal" data-target="#editUser"> <i class="fa fa-edit"></i></a>
                                         /
                                         <a href=""> <i class="fa fa-trash red"></i></a>
                                     </td>
