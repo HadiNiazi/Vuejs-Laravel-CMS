@@ -24,7 +24,11 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@casl/ability": "^5.1.2",
+        "@casl/vue": "^1.2.1",
+        "laravel-vue-pagination": "^2.3.1",
         "moment": "^2.29.1",
+        "sweetalert": "^2.1.2",
         "vform": "^1.0.1",
         "vue-progressbar": "^0.7.5",
         "vue-router": "^3.4.9",

@@ -61,6 +61,7 @@ export default {
     data: function(){
         return{
             users:[],
+            newAddedUser:'',
             form: new Form({
             name: '',
             email: '',
@@ -75,26 +76,26 @@ export default {
         addNewUser(){
             this.$Progress.start();
             this.form.post('/api/user/store')
-            .then(({ data }) => {
-                this.form.reset();
+            .then( response => {
 
+                this.form.reset();
                 toast.fire({
                 icon: 'success',
                 title: 'User created successfully'
                 });
-
+                $('#addNewUser').modal('hide');
                 this.$Progress.finish()
-                this.loadUsers();
-              },
-              (response) => {
-                this.$Progress.fail()
-                })
+
+                this.$emit('reloadUserList');
+                // this.loadUsers();
+              })
+              .catch( error => {
+                  this.$Progress.fail()
+                   swal("Wrong!", "Something went wrong!", "error");
+              })
 
         },
-        loadUsers(){
-            $('#addNewUser').modal('hide');
-            this.$emit('reloadUserList');
-                 }
+
         }
 }
 </script>

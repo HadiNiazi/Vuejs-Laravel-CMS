@@ -18,13 +18,14 @@ Route::get('/', function () {
     auth()->logout();
     return view('welcome');
 });
-Route::get('{path}', "Admin\DashboardController@home")->where( 'path', '^[A-Za-z/\0-9_.]+$' );
+
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-// =========== Admin routes ==============//
+Route::get('/logout', 'Admin\DashboardController@logout');
 Route::prefix('/admin')->as('.admin')->middleware(['auth'])->group(function(){
     Route::get('/dashboard', 'Admin\DashboardController@home');
 });
+Route::get('{path}', "Admin\DashboardController@home")->where( 'path', '^[A-Za-z/\0-9_.]+$' );
 
 

@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <small>Vuejs and Laravel Web App</small>
                 </div>
 
                 <div class="links">

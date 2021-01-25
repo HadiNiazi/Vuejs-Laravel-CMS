@@ -7,12 +7,24 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+
+import App from './components/App';
 import VueRouter from 'vue-router';
 import routes from './routes';
+import EventBus from './event-bus';
 import { Form, HasError, AlertError } from 'vform';
 import moment from 'moment';
 import VueProgressBar from 'vue-progressbar';
 import VueSweetalert2 from 'vue-sweetalert2';
+import swal from 'sweetalert';
+Vue.use(EventBus);
+
+// import { abilitiesPlugin } from '@casl/vue';
+// import {ability} from './permission.js';
+// Vue.use(abilitiesPlugin, ability);
+Vue.component('pagination', require('laravel-vue-pagination'));
+
+
 const Swal = require('sweetalert2');
 Vue.use(VueSweetalert2);
 
@@ -51,5 +63,9 @@ Vue.filter('created_at', function(date){
 
 const app = new Vue({
     el: '#app',
+    components:{
+        App
+    },
     router:new VueRouter(routes)
 });
+global.vm = app;

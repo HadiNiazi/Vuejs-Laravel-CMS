@@ -17,7 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::middleware('auth:sanctum')->get('/users', 'Admin\API\UserController@index');
+// middleware('auth:sanctum')->
+Route::get('/users', 'Admin\API\UserController@index');
 Route::post('/user/store', 'Admin\API\UserController@store');
-Route::put('/user/edit/{id}', 'Admin\API\UserController@update');
+Route::post('/user/update/{id}', 'Admin\API\UserController@update');
+
 Route::get('/user-profile', 'Admin\API\UserController@profile');
+Route::post('user-profile/update/{user}', 'Admin\API\UserController@updateUser');
+
+Route::post('/user/{id}', 'Admin\API\UserController@destroy');
+Route::get('findUser/{user}', 'Admin\API\UserController@findUser');
+

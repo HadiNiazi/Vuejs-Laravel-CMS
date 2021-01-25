@@ -44,4 +44,23 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function login(Request $request)
+    {
+            $user = User::where('email', $request->email)->first();
+            if (! $user || ! Hash::check($request->password, $user->password)) {
+                throw ValidationException::withMessages([
+                    'email' => ['The provided credentials are incorrect.'],
+                ]);
+            }
+            $userToken = $user->createToken($request->email)->plainTextToken;
+
+
+
+            $credentials = $request->only('email', 'password');
+            if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return redirect('admin/dashboard');
+        }
+    }
+
 }
